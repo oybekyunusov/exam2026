@@ -1,0 +1,1135 @@
+\
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMC DE LUXE - Real Estate</title>
+    <!-- Подключение шрифтов -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Подключение иконок FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- ПЕРЕМЕННЫЕ И СБРОС --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #6b6b6b;
+            --accent-color: #e3b19e;
+            /* Бежевый цвет кнопок */
+            --bg-light: #f8f9fa;
+            --border-color: #eaeaea;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- КНОПКИ --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #d49a86;
+        }
+
+        /* --- ШАПКА --- */
+        header {
+            padding: 20px 0;
+            background: #fff;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            color: var(--text-light);
+            display: block;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        /* --- ГЛАВНЫЙ БАННЕР (HERO) --- */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            /* Замените ссылку ниже на ваше фото дома */
+            background: url('./assest/icons/imgs/imgs1.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.1;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hero-nav {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            gap: 15px;
+            z-index: 2;
+        }
+
+        .hero-nav button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero-nav button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- СЕКЦИИ --- */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+
+        /* --- О КОМПАНИИ --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .about-card {
+            background: var(--bg-light);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 400px;
+        }
+
+        .about-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .about-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* --- ИНВЕСТИЦИИ --- */
+        .investment-section {
+            background-color: var(--bg-light);
+        }
+
+        .investment-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .investment-text h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .investment-text p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .investment-images {
+            position: relative;
+            height: 500px;
+        }
+
+        .investment-images img {
+            position: absolute;
+            object-fit: cover;
+        }
+
+        .img-main {
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 70%;
+        }
+
+        .img-secondary {
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: 50%;
+            border: 10px solid var(--bg-light);
+        }
+
+        /* --- УПРАВЛЕНИЕ НЕДВИЖИМОСТЬЮ --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px 40px;
+        }
+
+        .service-item i {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .service-item h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .service-item p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* --- КОНСАЛТИНГ --- */
+        .consulting-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .consulting-text h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .consulting-text p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .consulting-img img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* --- ПОЧЕМУ ВЫБИРАЮТ НАС --- */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .why-item {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .why-item.text {
+            border: 1px solid var(--border-color);
+        }
+
+        .why-item.text h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .why-item.text p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .why-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 250px;
+        }
+
+        /* --- НОВОСТРОЙКИ --- */
+        .new-builds-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .new-builds-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .new-builds-nav button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--text-light);
+            background: transparent;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        .builds-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .build-card {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .build-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .build-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .build-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        }
+
+        .build-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        .build-info h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .build-info p {
+            font-size: 14px;
+        }
+
+        .heart-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        /* --- ИПОТЕКА --- */
+        .mortgage-section {
+            background-color: var(--bg-light);
+        }
+
+        .mortgage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .mortgage-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: var(--font-main);
+        }
+
+        .mortgage-results {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .result-item {
+            margin-bottom: 15px;
+        }
+
+        .result-item span {
+            font-size: 12px;
+            color: var(--text-light);
+            display: block;
+        }
+
+        .result-item strong {
+            font-size: 18px;
+        }
+
+        /* --- КОНТАКТЫ --- */
+        .contact-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--bg-light);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .contact-form {
+            padding: 60px;
+        }
+
+        .contact-form h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background: transparent;
+            padding: 10px 0;
+            font-family: var(--font-main);
+            font-size: 14px;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-bottom-color: var(--accent-color);
+        }
+
+        .contact-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- БЛОГ --- */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .blog-card h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .blog-card a {
+            font-size: 14px;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* --- ПОДВАЛ --- */
+        footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 20px;
+            font-size: 20px;
+            color: var(--text-light);
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .footer-links h5 {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+
+        /* --- АДАПТИВНОСТЬ --- */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .about-grid,
+            .services-grid,
+            .why-grid,
+            .builds-grid,
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .investment-inner,
+            .consulting-inner,
+            .mortgage-grid,
+            .contact-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .investment-images {
+                height: 400px;
+                margin-top: 40px;
+            }
+
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            /* Скрываем меню на мобильных для упрощения */
+            .about-grid,
+            .services-grid,
+            .why-grid,
+            .builds-grid,
+            .blog-grid,
+            .mortgage-form {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ШАПКА -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-img"></div>
+                <div>
+                    <div class="logo-text">RMC DE LUXE</div>
+                    <span class="logo-sub">real estate</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Услуги <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Блог</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <i class="fas fa-search"></i>
+                <i class="far fa-heart"></i>
+                <i class="fas fa-moon"></i>
+                <span style="font-size: 14px;">Ru <i class="fas fa-chevron-down" style="font-size: 10px;"></i></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ГЛАВНЫЙ БАННЕР -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Найдите<br>идеальное место<br>для жизни</h1>
+                <p>Откройте двери в новое будущее с нами</p>
+                <a href="#" class="btn">Подробнее</a>
+            </div>
+            <div class="hero-nav">
+                <button><i class="fas fa-chevron-left"></i></button>
+                <button><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- О КОМПАНИИ -->
+        <section class="about">
+            <div class="container">
+                <h2 class="section-title">О компании RMC DE LUXE</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div>
+                            <h3>Аренда</h3>
+                            <p>Продаем и покупаем объекты недвижимости по самым выгодным условиям.</p>
+                        </div>
+                        <img src="./assest/icons/imgs/imgs2.png" alt="Аренда">
+                    </div>
+                    <div class="about-card">
+                        <div>
+                            <h3>Купля - продажа</h3>
+                            <p>Мы предлагаем разнообразные варианты аренды</p>
+                        </div>
+                        <img src="./assest/icons/imgs/imgs3.png" alt="Купля-продажа">
+                    </div>
+                    <div class="about-card">
+                        <div>
+                            <h3>Управление</h3>
+                            <p>Управление недвижимостью с максимальной эффективностью и заботой о каждом клиенте.</p>
+                        </div>
+                        <img src="./assest/icons/imgs/imgs4.png" alt="Управление">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ИНВЕСТИЦИИ -->
+        <section class="investment-section">
+            <div class="container investment-inner">
+                <div class="investment-text">
+                    <h2>Инвестиции в<br>недвижимость в Дубае</h2>
+                    <p>Недвижимость в Дубае предоставляет отличные возможности для получения стабильного дохода и
+                        увеличения
+                        капитала</p>
+                    <p>Полный цикл инвестиций: От анализа рынка и подбора объектов до управления инвестициями и их
+                        реализации.</p>
+                    <p>Наши эксперты помогут вам на всех этапах инвестиционного процесса, обеспечивая высокое качество
+                        обслуживания и надежность.</p>
+                    <p>Наши услуги включают управление вашей инвестиционной недвижимостью, обеспечивая её сохранность и
+                        стабильный доход. Мы берем на себя все аспекты управления, включая подбор и проверку
+                        арендаторов,
+                        техническое обслуживание, финансовую отчетность и юридическую поддержку.</p>
+                    <br>
+                    <a href="#" class="btn">Подробнее</a>
+                </div>
+                <div class="investment-images">
+                    <img class="img-main" src="./assest/icons/imgs/imgs5.jpg" alt="Дубай 1">
+                    <img class="img-secondary" src="./assest/icons/imgs/imgs4.png" alt="Дубай 2">
+                </div>
+            </div>
+        </section>
+
+        <!-- УПРАВЛЕНИЕ НЕДВИЖИМОСТЬЮ -->
+        <section class="management">
+            <div class="container">
+                <h2 class="section-title">Что входит в услугу управления недвижимостью</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-user-check"></i>
+                        <h4>Проверка арендаторов</h4>
+                        <p>Проверка арендаторов (кредитная история, рекомендации)</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-file-signature"></i>
+                        <h4>Подготовка договоров аренды</h4>
+                        <p>Проверка арендаторов (кредитная история, рекомендации)</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h4>Сбор арендной платы</h4>
+                        <p>Проверка арендаторов (кредитная история, рекомендации)</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <h4>Обработка запросов и жалоб арендаторов</h4>
+                        <p>Проверка арендаторов (кредитная история, рекомендации)</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-clipboard-check"></i>
+                        <h4>Контроль соблюдения условий аренды</h4>
+                        <p>Проверка арендаторов (кредитная история, рекомендации)</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-hammer"></i>
+                        <h4>Организация и проведение ремонтных работ</h4>
+                        <p>Проверка арендаторов (кредитная история, рекомендации)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- КОНСАЛТИНГ -->
+        <section class="consulting" style="background-color: var(--bg-light);">
+            <div class="container consulting-inner">
+                <div class="consulting-text">
+                    <h2>Консалтинг и сопровождение<br>при открытии и регистрации<br>фирмы</h2>
+                    <p>Открытие бизнеса в Дубае с нашей помощью — это простой и быстрый процесс! Мы предлагаем полное
+                        сопровождение: от выбора формы компании до регистрации и получения лицензий. Экспертная
+                        поддержка на
+                        каждом этапе для успешного старта вашего бизнеса в ОАЭ.</p>
+                    <br>
+                    <a href="#" class="btn">Подробнее</a>
+                </div>
+                <div class="consulting-img">
+                    <img src="./assest/icons/imgs/imgs6.png" alt="Консалтинг">
+                </div>
+            </div>
+        </section>
+
+        <!-- ПОЧЕМУ ВЫБИРАЮТ НАС -->
+        <section class="why-us">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <div class="why-grid">
+                    <!-- Ряд 1 -->
+                    <div class="why-item text">
+                        <h4>Опыт и профессионализм</h4>
+                        <p>Наши специалисты имеют многолетний опыт в различных сферах недвижимости, что гарантирует
+                            высокое качество услуг</p>
+                    </div>
+                    <div class="why-item">
+                        <img src="./assest/icons/imgs/imgs7.png" alt="Опыт">
+                    </div>
+                    <div class="why-item text">
+                        <h4>Прозрачность и доверие</h4>
+                        <p>Обеспечение полной прозрачности всех операций и предоставление отчетов. Работа основана на
+                            принципах честности и
+                            доверия, что подтверждается отзывами</p>
+                    </div>
+                    <!-- Ряд 2 -->
+                    <div class="why-item">
+                        <img src="./assest/icons/imgs/imgs8.png" alt="Обслуживание">
+                    </div>
+                    <div class="why-item text">
+                        <h4>Высокий уровень обслуживания</h4>
+                        <p>Мы всегда на связи, чтобы помочь вам в любое время</p>
+                    </div>
+                    <div class="why-item">
+                        <img src="./assest/icons/imgs/imgs9.png" alt="Интерьер">
+                    </div>
+                    <!-- Ряд 3 -->
+                    <div class="why-item text">
+                        <h4>Индивидуальный подход</h4>
+                        <p>Мы разрабатываем персонализированные решения, учитывая уникальные потребности каждого клиента
+                        </p>
+                    </div>
+                    <div class="why-item">
+                        <img src="./assest/icons/imgs/imgs10.png" alt="Кухня">
+                    </div>
+                    <div class="why-item text">
+                        <h4>Комплексное обслуживание</h4>
+                        <p>Полный спектр услуг, включающий аренду, куплю-продажу, управление и инвестиции в
+                            недвижимость.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- НОВОСТРОЙКИ -->
+        <section class="new-builds">
+            <div class="container">
+                <div class="new-builds-header">
+                    <h2 class="section-title" style="margin-bottom: 0;">Новостройки</h2>
+                    <div class="new-builds-nav">
+                        <button><i class="fas fa-chevron-left"></i></button>
+                        <button><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="builds-grid">
+                    <div class="build-card">
+                        <i class="far fa-heart heart-icon"></i>
+                        <img src="./assest/icons/imgs/imgs11.png" alt="Safa One">
+                        <div class="build-info">
+                            <h4>Safa One</h4>
+                            <p>от $1 900 000</p>
+                        </div>
+                    </div>
+                    <div class="build-card">
+                        <i class="far fa-heart heart-icon"></i>
+                        <img src="./assest/icons/imgs/imgs12.png" alt="Safa Two">
+                        <div class="build-info">
+                            <h4>Safa Two</h4>
+                            <p>от $399 000</p>
+                        </div>
+                    </div>
+                    <div class="build-card">
+                        <i class="far fa-heart heart-icon"></i>
+                        <img src="./assest/icons/imgs/imgs13.png" alt="Peninsula Two">
+                        <div class="build-info">
+                            <h4>Peninsula Two</h4>
+                            <p>от $245 000</p>
+                        </div>
+                    </div>
+                    <div class="build-card">
+                        <i class="far fa-heart heart-icon"></i>
+                        <img src="./assest/icons/imgs/imgs14.png" alt="Marina Vista">
+                        <div class="build-info">
+                            <h4>Marina Vista</h4>
+                            <p>от $612 000</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <a href="#" class="btn">Смотреть все</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ИПОТЕКА -->
+        <section class="mortgage-section">
+            <div class="container">
+                <h2 class="section-title">Рассчитайте ипотеку</h2>
+                <div class="mortgage-grid">
+                    <div class="mortgage-form">
+                        <div class="input-group">
+                            <label>Стоимость недвижимости (у.е.)</label>
+                            <input type="text" placeholder="Введите стоимость">
+                        </div>
+                        <div class="input-group">
+                            <label>Первоначальный взнос (у.е.)</label>
+                            <input type="text" placeholder="Введите размер взноса">
+                        </div>
+                        <div class="input-group">
+                            <label>Срок в годах</label>
+                            <input type="text" placeholder="Введите срок">
+                        </div>
+                        <div class="input-group">
+                            <label>Ставка (%)</label>
+                            <input type="text" placeholder="Введите размер ставки">
+                        </div>
+                    </div>
+                    <div class="mortgage-results">
+                        <div class="result-item">
+                            <span>Ежемесячный платеж</span>
+                            <strong>4 410 у.е.</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Процентная ставка</span>
+                            <strong>24%</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Сумма кредита</span>
+                            <strong>200 000 у.е.</strong>
+                        </div>
+                        <div class="result-item">
+                            <span>Дата последнего платежа</span>
+                            <strong>28 июля 2034 г.</strong>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px;">
+                    <a href="#" class="btn">Рассчитать</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- КОНТАКТЫ -->
+        <section class="contact">
+            <div class="container">
+                <div class="contact-inner">
+                    <div class="contact-form">
+                        <h2>Остались вопросы?<br>Свяжитесь с нами</h2>
+                        <form action="#">
+                            <input type="text" placeholder="ФИО *">
+                            <input type="tel" placeholder="Номер телефона *">
+                            <input type="email" placeholder="E-mail">
+                            <textarea rows="4" placeholder="Ваш вопрос"></textarea>
+                            <button type="submit" class="btn" style="width: fit-content;">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="contact-img">
+                        <img src="./assest/icons/imgs/imgs15.jpg" alt="Здание">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОГ -->
+        <section class="blog">
+            <div class="container">
+                <h2 class="section-title">Блог</h2>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <img src="./assest/icons/imgs/imgs16.jpg" alt="Блог 1">
+                        <div class="blog-meta">
+                            <span>31.07.2024</span>
+                            <span><i class="far fa-eye"></i> 899</span>
+                        </div>
+                        <h4>Тенденции и прогнозы рынка недвижимости на 2024 год</h4>
+                        <a href="#">Подробнее <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="blog-card">
+                        <img src="./assest/icons/imgs/imgs17.jpg" alt="Блог 2">
+                        <div class="blog-meta">
+                            <span>31.07.2024</span>
+                            <span><i class="far fa-eye"></i> 899</span>
+                        </div>
+                        <h4>Лучшие районы для инвестиций в недвижимость</h4>
+                        <a href="#">Подробнее <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="blog-card">
+                        <img src="./assest/icons/imgs/imgs18.jpg" alt="Блог 3">
+                        <div class="blog-meta">
+                            <span>31.07.2024</span>
+                            <span><i class="far fa-eye"></i> 899</span>
+                        </div>
+                        <h4>Топ-10 новых жилых комплексов</h4>
+                        <a href="#">Подробнее <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="#" class="btn">Все статьи</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="logo">
+                    <div class="logo-img"></div>
+                    <div>
+                        <div class="logo-text">RMC DE LUXE</div>
+                        <span class="logo-sub">real estate</span>
+                    </div>
+                </div>
+                <div class="footer-socials">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-telegram-plane"></i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <h5>Услуги</h5>
+                    <ul>
+                        <li><a href="#">Купить</a></li>
+                        <li><a href="#">Арендовать</a></li>
+                        <li><a href="#">Продать</a></li>
+                        <li><a href="#">Оценить</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Недвижимость</h5>
+                    <ul>
+                        <li><a href="#">Квартиры</a></li>
+                        <li><a href="#">Новостройки</a></li>
+                        <li><a href="#">Дома и участки</a></li>
+                        <li><a href="#">Коммерческая</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Компания</h5>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Связаться</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Другое</h5>
+                    <ul>
+                        <li><a href="#">Ипотечный калькулятор</a></li>
+                        <li><a href="#">Инвестиции в недвижимость в Дубае</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2024 © RMC De Luxe real estate LLC. Все права защищены</p>
+                <p>RESULT</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
